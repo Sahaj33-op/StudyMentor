@@ -16,14 +16,16 @@ All-in-one AI-powered learning companion: note summarization, quiz generation, p
 ## Architecture
 
 ```
+
 +-------------------+         REST API         +-------------------+
-|   React + Vite    | <---------------------> |     FastAPI       |
-|   Tailwind UI     |                         |  HuggingFace AI   |
-|   (frontend)      |                         |  Resume Parser    |
+\|   React + Vite    | <---------------------> |     FastAPI       |
+\|   Tailwind UI     |                         |  HuggingFace AI   |
+\|   (frontend)      |                         |  Resume Parser    |
 +-------------------+                         +-------------------+
-        |                                              |
-        |<---------- Tauri (optional) ---------------->|
-```
+\|                                              |
+|<---------- Tauri (optional) ---------------->|
+
+````
 
 ---
 
@@ -37,7 +39,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
+````
 
 ### 2. Frontend (React + Vite + Tailwind)
 
@@ -47,22 +49,22 @@ npm install
 npm run dev
 ```
 
-- The frontend runs on `localhost:5173` (default Vite port).
-- The backend runs on `localhost:8000`.
-- Make sure CORS is enabled (already set in backend).
+* The frontend runs on `localhost:5173` (default Vite port).
+* The backend runs on `localhost:8000`.
+* Make sure CORS is enabled (already set in backend).
 
 ### 3. (Optional) Tauri Desktop App
 
-- See [https://tauri.app/](https://tauri.app/) for wrapping the frontend as a desktop app.
+* See [https://tauri.app/](https://tauri.app/) for wrapping the frontend as a desktop app.
 
 ---
 
 ## Endpoints
 
-- `POST /api/notes/process` — PDF/text upload → { summary, questions[] }
-- `POST /api/roadmap/generate` — { goal, level } → [ { milestone, description, resources[] } ]
-- `POST /api/qa/query` — { context, question } → { answer }
-- `POST /api/resume/analyze` — Resume upload → { feedback, suggestedRoles[] }
+* `POST /api/notes/process` — PDF/text upload → { summary, questions\[] }
+* `POST /api/roadmap/generate` — { goal, level } → \[ { milestone, description, resources\[] } ]
+* `POST /api/qa/query` — { context, question } → { answer }
+* `POST /api/resume/analyze` — Resume upload → { feedback, suggestedRoles\[] }
 
 ---
 
